@@ -12,6 +12,8 @@
  */
 public class Magpie
 {
+    // INSTANCE VARIABLES
+    private boolean knowsAboutPets = false;
 	/**
 	 * Get a default greeting 	
 	 * @return a greeting
@@ -30,6 +32,10 @@ public class Magpie
 	 */
 	public String getResponse(String statement)
 	{
+            // TRIM AND EARLY TERMINATION
+            statement = statement.trim().toLowerCase();
+            if (statement.length() == 0) return "Hey, gimme something to work with";
+            // this is dangerous but possible, due to the fact it's all on one line
 		String response = "";
 		if (statement.indexOf("no") >= 0)
 		{
@@ -42,6 +48,29 @@ public class Magpie
 		{
 			response = "Tell me more about your family.";
 		}
+                else if (statement.indexOf("dog") >= 0
+                        || statement.indexOf("cat") >= 0){
+                    if(!knowsAboutPets){
+                        response = "Wow, you have pets? Please tell me more!";
+                        knowsAboutPets = true;
+                    }
+                }
+                else if (statement.indexOf("Adiletta") >= 0
+                        || statement.indexOf("adiletta") >=0){
+                    response = "Oh, he is a very beautiful, lovely, hard working man!";
+                }
+                else if(statement.indexOf("weej") >=0){
+                    response = "He's such a cheeser!";
+                }
+                else if(statement.indexOf("java") >=0){
+                    response = "Sounds harder than Python";
+                }
+                else if(statement.indexOf("coffee") >=0){
+                    response = "The worst part of being a machine is the lack of emotion";
+                }
+                else if(statement.indexOf("archie") >=0){
+                    response = "I assume that is your fat dog!";
+                }
 		else
 		{
 			response = getRandomResponse();
@@ -75,6 +104,14 @@ public class Magpie
 		else if (whichResponse == 3)
 		{
 			response = "You don't say.";
+		}
+                else if (whichResponse == 4)
+		{
+			response = "Zowie! This is a hum-dinger of a conversation.";
+		}
+                else if (whichResponse == 5)
+		{
+			response = "We're having a great, very human conversation";
 		}
 		
 		return response;
