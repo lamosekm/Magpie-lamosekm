@@ -13,6 +13,7 @@
 public class Magpie
 {
     // INSTANCE VARIABLES
+    
     private boolean knowsAboutPets = false;
 	/**
 	 * Get a default greeting 	
