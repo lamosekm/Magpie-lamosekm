@@ -15,6 +15,7 @@
 public class Magpie {
 
     // INSTANCE VARIABLES
+    
     private boolean knowsAboutPets = false;
 
     /**
